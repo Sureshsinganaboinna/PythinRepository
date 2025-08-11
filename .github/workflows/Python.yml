@@ -1,15 +1,18 @@
-name: Python Setup
+name: python setup
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
 
 jobs:
   python-setup:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Python environment
-        uses: actions/setup-python@v5.6.0
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
-      - name: Check Python version
+          python-version: '3.11'  # You can change this to any version you need
+      - name: Print Python Version
         run: python --version
